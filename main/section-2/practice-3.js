@@ -3,7 +3,7 @@
 function findObjInArr(result, str) {
     let newObj;
     for (let obj of result) {
-        if (obj.key === str) {
+        if (obj.name === str) {
             newObj = obj;
         }
     }
@@ -20,19 +20,18 @@ function countElements(collection) {
             result.push({name: str, summary: 1})
         }
     }
-    console.log('result',result)
+
     return result
 }
 
 function handleSpecialStr(str, transformedCollection) {
     let addNum;
     if (str.length === 3) {
-        addNum = str[2]
+        addNum = parseInt(str[2])
     } else {
         let startIndex = str.indexOf('['),
-            endIndex = str.indexOf(']'),
-            addNum = str.substring(startIndex + 1, endIndex)
-            console.log('addNum',addNum,str[0]);
+            endIndex = str.indexOf(']');
+        addNum = str.substring(startIndex + 1, endIndex)
     }
 
     for (let i = 0; i < parseInt(addNum); i++) {
